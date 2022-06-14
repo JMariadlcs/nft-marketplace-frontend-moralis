@@ -148,3 +148,5 @@ by
 Refresh Moralis Database and **SUCCESS, EVENTS ADDED** ✅.
 
 -> Now you can exeucte scripts for example [mint-and-list](https://github.com/JMariadlcs/nft-marketplace-backend/blob/main/scripts/mint-and-list.js) and check if database listen for the events emited.
+
+**🚨SUPER IMPORTANT**: everytime you stop and start again you local hardhat node you must RESET LOCAL CHAIN for it to continue listening events correctly.
