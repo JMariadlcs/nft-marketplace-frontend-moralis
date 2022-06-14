@@ -102,21 +102,40 @@ by
 
     - Download your required [frpc](https://github.com/fatedier/frp/releases) version. (If you are MAC user: frp_0.36.2_darwin_amd64).
     - We are using `frpc` and `frpc.ini`
-    - Crea new folder [frp](https://github.com/JMariadlcs/nft-marketplace-frontend-moralis/tree/main/frp) and paste the above metioned files.
-    - Pase what Moralis gives you inside [frpc.ini](https://github.com/JMariadlcs/nft-marketplace-frontend-moralis/blob/main/frp/frpc.ini):
+    - Create new folder [frp](https://github.com/JMariadlcs/nft-marketplace-frontend-moralis/tree/main/frp) and paste the above metioned files.
+    - Paste what Moralis gives you inside [frpc.ini](https://github.com/JMariadlcs/nft-marketplace-frontend-moralis/blob/main/frp/frpc.ini):
 
     ```bash
     [common]
-    dapp_addr = mfopmyoypvgm.usemoralis.com
-    dapp_port = 7000
-    token = KKKaDjYz0i
+    server_addr = nmk4ye9zkaww.usemoralis.com
+    server_port = 7000
+    token = WVoNKUfNOt
     [hardhat]
     type = http
-    local_port = 7545
-    custom_domains = mfopmyoypvgm.usemoralis.com
+    local_port = 8545
+    custom_domains = nmk4ye9zkaww.usemoralis.com
     ```
 
-```
+    - Go to [frp](https://github.com/JMariadlcs/nft-marketplace-frontend-moralis/tree/main/frp) and execute:
 
-  2. Indicate which contract, events and what do when it hears the events.
-```
+    ```bash
+    ./frpc -c frpc.ini
+    ```
+
+    OR
+
+    - Follow the intructions to install [Moralis CLI](https://docs.moralis.io/moralis-dapp/tools/moralis-admin-cli). (inside [frp](https://github.com/JMariadlcs/nft-marketplace-frontend-moralis/tree/main/frp))
+    - Go to [package.json](https://github.com/JMariadlcs/nft-marketplace-frontend-moralis/blob/main/package.json) and under scripts include:
+
+    ```bash
+    "moralis:sync": "moralis-admin-cli connect-local-devchain --chain hardhat --moralisSubdomain XXXX.com --frpcPath ./frp/frpc"
+    ```
+
+    - Include CLI API key and Master Key (API SECRET KEY) inside `.env`.
+    - Execute by terminal:
+
+    ```bash
+    yarn moralis:sync
+    ```
+
+4. Indicate which contract, events and what do when it hears the events.
