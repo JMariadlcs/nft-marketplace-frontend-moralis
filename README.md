@@ -144,3 +144,7 @@ by
     ```bash
     node addEvents.js
     ```
+
+Refresh Moralis Database and **SUCCESS, EVENTS ADDED** ✅.
+
+-> Now you can exeucte scripts for example [mint-and-list](https://github.com/JMariadlcs/nft-marketplace-backend/blob/main/scripts/mint-and-list.js) and check if database listen for the events emited.
