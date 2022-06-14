@@ -87,3 +87,19 @@ by
 ```bash
   <MoralisProvider appId ="xxx" serverUrl="xxx">
 ```
+
+**REMINDER**: user enviromental variables.
+
+3. Create an event entry on Moralis database.
+
+    1. Connect it to our blockchain:
+
+    - Go to [backend repo](https://github.com/JMariadlcs/nft-marketplace-backend) and start local blockchain:
+
+    ```bash
+    yarn hardhat node
+    ```
+
+    - Donwload
+
+    2. Indicate which contract, events and what do when it hears the events.
