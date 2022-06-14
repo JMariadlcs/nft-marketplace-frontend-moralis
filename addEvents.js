@@ -1,4 +1,5 @@
 // Script used to add events to Moralis server programatically.
+// Execute: `node addEvents.js`
 
 const Moralis = require("moralis/node")
 require("dotenv").config()
@@ -127,15 +128,10 @@ async function main() {
         tableName: "ItemCanceled",
     }
 
-    const listedResponse = await Moralis.Cloud.run("watchContractEvent", itemListedOptions, {
-        useMasterKey: true,
-    })
-    const boughtResponse = await Moralis.Cloud.run("watchContractEvent", itemBoughtOptions, {
-        useMasterKey: true,
-    })
-    const canceledResponse = await Moralis.Cloud.run("watchContractEvent", itemCanceledOptions, {
-        useMasterKey: true,
-    })
+    // Send the information to the Moralis Server
+    const listedResponse = await Moralis.Cloud.run("watchContractEvent", itemListedOptions, { useMasterKey: true, })
+    const boughtResponse = await Moralis.Cloud.run("watchContractEvent", itemBoughtOptions, { useMasterKey: true, })
+    const canceledResponse = await Moralis.Cloud.run("watchContractEvent", itemCanceledOptions, { useMasterKey: true, })
     if (listedResponse.success && canceledResponse.success && boughtResponse.success) {
         console.log("Success! Database Updated with watching events")
     } else {

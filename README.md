@@ -139,3 +139,8 @@ by
     ```
 
 4. Indicate which contract, events and what do when it hears the events.
+    - Create a similar script that the one in [addEvents.js](https://github.com/JMariadlcs/nft-marketplace-frontend-moralis/blob/main/addEvents.js) and fill it with the events information (information of the events can be grab from [NftMarketplace.json](https://github.com/JMariadlcs/nft-marketplace-backend/blob/main/deployments/localhost/NftMarketplace.json)).
+    - Execute:
+    ```bash
+    node addEvents.js
+    ```
