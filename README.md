@@ -100,6 +100,7 @@ by
     yarn hardhat node
     ```
 
-    - Donwload
+    - Download your required [frpc](https://github.com/fatedier/frp/releases) version. (If you are MAC user: frp_0.36.2_darwin_amd64).
+    - We are using `frpc` and `frpc.ini`
 
     2. Indicate which contract, events and what do when it hears the events.
