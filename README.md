@@ -55,8 +55,8 @@ yarn add --dev tailwindcss postcss autoprefixer
 yarn tailwindcss init -p
 ```
 
--   Override [tailwind.config.js](https://github.com/JMariadlcs/raffle-frontend/blob/main/tailwind.config.js) with the code inside this file.
--   Override [global.css](https://github.com/JMariadlcs/raffle-frontend/blob/main/styles/globals.css)
+-   Override [tailwind.config.js](https://github.com/JMariadlcs/nft-marketplace-frontend-moralis/blob/main/tailwind.config.js) with the code inside this file.
+-   Override [global.css](https://github.com/JMariadlcs/nft-marketplace-frontend-moralis/blob/main/styles/globals.css)
 
 ## RUN LOCAL SERVER
 
@@ -67,3 +67,23 @@ yarn dev
 You will have your local server running at: `http://localhost:3000`.
 
 -   Open new bash terminal to use while yarn server is running
+
+## USE MORALIS SERVER
+
+We are using Moralis server (centralized) to listen for events. We are indexing the events off-chain and then read them from data-base. Setup a server to listen for these events to be fired and then add them to a database.
+
+To do so:
+
+1. Go to [moralis.io](https://moralis.io/) and create a dApp.
+2. Inside [_app.js]:
+   Replace
+
+```bash
+<MoralisProvider initializeOnMount={false}>
+```
+
+by
+
+```bash
+  <MoralisProvider appId ="xxx" serverUrl="xxx">
+```
