@@ -102,5 +102,21 @@ by
 
     - Download your required [frpc](https://github.com/fatedier/frp/releases) version. (If you are MAC user: frp_0.36.2_darwin_amd64).
     - We are using `frpc` and `frpc.ini`
+    - Crea new folder [frp](https://github.com/JMariadlcs/nft-marketplace-frontend-moralis/tree/main/frp) and paste the above metioned files.
+    - Pase what Moralis gives you inside [frpc.ini](https://github.com/JMariadlcs/nft-marketplace-frontend-moralis/blob/main/frp/frpc.ini):
 
-    2. Indicate which contract, events and what do when it hears the events.
+    ```bash
+    [common]
+    dapp_addr = mfopmyoypvgm.usemoralis.com
+    dapp_port = 7000
+    token = KKKaDjYz0i
+    [hardhat]
+    type = http
+    local_port = 7545
+    custom_domains = mfopmyoypvgm.usemoralis.com
+    ```
+
+```
+
+  2. Indicate which contract, events and what do when it hears the events.
+```
