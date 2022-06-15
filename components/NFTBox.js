@@ -91,7 +91,7 @@ export default function NFTBox({ price, nftAddress, tokenId, marketplaceAddress,
     const isOwnedByUser = seller === account || seller === undefined
     const formattedSellerAddress = isOwnedByUser ? "you" : truncateStr(seller || "", 15)
 
-    const handleCardClick = () => { // What happends when someone clicks a card
+    const handleCardClick = () => { // What happends when someone clicks a card -> if is owner (show price change), if not owner (show buy option)
         isOwnedByUser ? setShowModal(true) : buyItem({
             onError: (error) => console.log(error),
             onSuccess: handleBuyItemSuccess,

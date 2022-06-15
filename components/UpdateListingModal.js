@@ -9,9 +9,9 @@ export default function UpdateListingModal({ nftAddress, tokenId, isVisible, mar
 
     const [priceToUpdateListingWith, setPriceToUpdateListingWith] = useState(0) // keep track of Price Updated by NFT owner when wants to change price
 
-    const handleUpdateListingSuccess = async (tx) => {
+    const handleUpdateListingSuccess = async (tx) => { // What happends when a listing is correctly updated
         await tx.wait(1)
-        dispatch({
+        dispatch({ // Show notification
             type: "success",
             message: "listing updated",
             title: "Listing updated - please refresh (and move blocks)",
@@ -21,7 +21,7 @@ export default function UpdateListingModal({ nftAddress, tokenId, isVisible, mar
         setPriceToUpdateListingWith("0")
     }
 
-    const { runContractFunction: updateListing } = useWeb3Contract({
+    const { runContractFunction: updateListing } = useWeb3Contract({ // Function used for update listing NFT price
         abi: nftMarketplaceAbi,
         contractAddress: marketplaceAddress,
         functionName: "updateListing",

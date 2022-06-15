@@ -21,6 +21,7 @@ Objetives of the frontend project:
         2. If you are NOT the owner, you can buy de listing.
 2. Sell Page: ✅
     1. You can list your NFT to be sold.
+    2. Withdraw proceeds.
 
 ## CREATE SIMILAR PROJECT FROM SCRATCH
 
