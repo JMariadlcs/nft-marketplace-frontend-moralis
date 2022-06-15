@@ -19,13 +19,7 @@ Moralis.Cloud.afterSave("ItemListed", async (request) => { // Everytime ItemList
         if (alreadyListedItem) {
             logger.info(`Deleting ${request.object.get("objectId")}`)
             await alreadyListedItem.destroy()
-            logger.info(
-                `Deleted item with tokenId ${request.object.get(
-                    "tokenId"
-                )} at address ${request.object.get(
-                    "address"
-                )} since the listing is being updated. `
-            )
+            logger.info(`Deleted item with tokenId ${request.object.get("tokenId")} at address ${request.object.get("address")} since the listing is being updated. `)
         }
 
         // Add new ActiveItem to "ActiveItem table"
@@ -58,15 +52,10 @@ Moralis.Cloud.afterSave("ItemCanceled", async (request) => {
             logger.info(`Deleting ${request.object.get("objectId")}`)
             await canceledItem.destroy()
             logger.info(
-                `Deleted item with tokenId ${request.object.get(
-                    "tokenId"
-                )} at address ${request.object.get("address")} since it was canceled. `
-            )
+                `Deleted item with tokenId ${request.object.get("tokenId")} at address ${request.object.get("address")} since it was canceled. `)
         } else {
             logger.info(
-                `No item canceled with address: ${request.object.get(
-                    "address"
-                )} and tokenId: ${request.object.get("tokenId")} found.`
+                `No item canceled with address: ${request.object.get("address")} and tokenId: ${request.object.get("tokenId")} found.`
             )
         }
     }
@@ -89,18 +78,10 @@ Moralis.Cloud.afterSave("ItemBought", async (request) => {
             logger.info(`Deleting ${request.object.get("objectId")}`)
             await canceledItem.destroy()
             logger.info(
-                `Deleted item with tokenId ${request.object.get(
-                    "tokenId"
-                )} at address ${request.object.get(
-                    "address"
-                )} from ActiveItem table since it was bought.`
-            )
+                `Deleted item with tokenId ${request.object.get("tokenId")} at address ${request.object.get("address")} from ActiveItem table since it was bought.`)
         } else {
             logger.info(
-                `No item bought with address: ${request.object.get(
-                    "address"
-                )} and tokenId: ${request.object.get("tokenId")} found`
-            )
+                `No item bought with address: ${request.object.get("address")} and tokenId: ${request.object.get("tokenId")} found`)
         }
     }
 })

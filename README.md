@@ -159,7 +159,7 @@ Refresh Moralis Database and **SUCCESS, EVENTS ADDED** ✅.
 
 ### USE CLOUD FUNCTIONS
 
-Cloud Functions are used to, for example, update Moralis Database table.
+Cloud Functions are used to, for example, update Moralis Database table. Functions found on [cloudFunctions](https://github.com/PatrickAlphaC/nextjs-nft-marketplace-moralis-fcc/blob/main/cloudFunctions/updateActiveItems.js) script under `cloudFunctions`folder.
 
 -   Install moralis admin cli:
 
@@ -191,8 +191,12 @@ Changes Uploaded Correctly
 
 Close it when you have already the functions udpated! -> only start it when you want to update the functions inside [updateActiveItems.js](https://github.com/JMariadlcs/nft-marketplace-frontend-moralis/blob/main/cloudFunctions/updateActiveItems.js).
 
--   Now you can exeucte scripts for example [mint-and-list](https://github.com/JMariadlcs/nft-marketplace-backend/blob/main/scripts/mint-and-list.js) and see that databaseLogs are updated!:
-    `bash yarn hardhat run scripts/mint-and-list.js --network localhost `
+-   Now you can exeucte scripts for example [mint-and-list](https://github.com/JMariadlcs/nft-marketplace-backend/blob/main/scripts/mint-and-list.js) or any other script and see that databaseLogs are updated!:
+
+    ```bash
+    yarn hardhat run scripts/mint-and-list.js --network localhost
+    ```
+
     Refresh Moralis Database and **SUCCESS** ✅. You can now check new Database table added with entries or new logs on Moralis Database, depending on what you have inside [updateActiveItems.js](https://github.com/JMariadlcs/nft-marketplace-frontend-moralis/blob/main/cloudFunctions/updateActiveItems.js).
 
 **🚨SUPER IMPORTANT**: everytime you stop and start again you local hardhat node you must RESET LOCAL CHAIN (moralis Server) for it to continue listening events correctly. You should also delete manually database entries on Moralis Database if you are running local blockchain because if you start a new one the past entries are still appearing.
