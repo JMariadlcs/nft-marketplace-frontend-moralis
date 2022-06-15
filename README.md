@@ -7,9 +7,9 @@ The frontend of this project is being implemented in two different ways:
 1. Using [Moralis Indexer Frontend](https://github.com/JMariadlcs/nft-marketplace-frontend-moralis).
 2. Using [TheGraph Indexer](https://github.com/JMariadlcs/nft-marketplace-frontend-thegraph).
 
-The workshop followed to complete this repo is [this one](https://github.com/PatrickAlphaC/nextjs-nft-marketplace-moralis-fcc).
+The workshop followed to complete this repo is [this one](https://www.youtube.com/watch?v=gyMwXuJrbJQ&t=15996s).
 
-The repo that we are going to implement is like [this one](https://www.youtube.com/watch?v=gyMwXuJrbJQ&t=15996s).
+The repo that we are going to implement is like [this one](https://github.com/PatrickAlphaC/nextjs-nft-marketplace-moralis-fcc).
 
 ## PROJECT
 
