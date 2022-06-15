@@ -70,6 +70,8 @@ You will have your local server running at: `http://localhost:3000`.
 
 ## USE MORALIS SERVER
 
+### LISTEN FOR EVENTS
+
 We are using Moralis server (centralized) to listen for events. We are indexing the events off-chain and then read them from data-base. Setup a server to listen for these events to be fired and then add them to a database.
 
 To do so:
@@ -140,7 +142,7 @@ by
 
 4. Indicate which contract, events and what do when it hears the events.
     - Create a similar script that the one in [addEvents.js](https://github.com/JMariadlcs/nft-marketplace-frontend-moralis/blob/main/addEvents.js) and fill it with the events information (information of the events can be grab from [NftMarketplace.json](https://github.com/JMariadlcs/nft-marketplace-backend/blob/main/deployments/localhost/NftMarketplace.json)).
-    - Execute:
+    - Execute just 1 TIME:
     ```bash
     node addEvents.js
     ```
@@ -149,4 +151,45 @@ Refresh Moralis Database and **SUCCESS, EVENTS ADDED** ✅.
 
 -> Now you can exeucte scripts for example [mint-and-list](https://github.com/JMariadlcs/nft-marketplace-backend/blob/main/scripts/mint-and-list.js) and check if database listen for the events emited.
 
-**🚨SUPER IMPORTANT**: everytime you stop and start again you local hardhat node you must RESET LOCAL CHAIN for it to continue listening events correctly.
+    ```bash
+    yarn hardhat run scripts/mint-and-list.js --network localhost
+    ```
+
+**🚨SUPER IMPORTANT**: everytime you stop and start again you local hardhat node you must RESET LOCAL CHAIN (moralis Server) for it to continue listening events correctly.
+
+### USE CLOUD FUNCTIONS
+
+-   Install moralis admin cli:
+
+```bash
+sudo npm install -g moralis-admin-cli
+```
+
+-   Create [cloudFunctions](https://github.com/PatrickAlphaC/nextjs-nft-marketplace-moralis-fcc/blob/main/cloudFunctions/updateActiveItems.js) script under `cloudFunctions`folder.
+
+-   Go to [package.json](https://github.com/JMariadlcs/nft-marketplace-frontend-moralis/blob/main/package.json) and under scripts include:
+
+    ```bash
+    "moralis:cloud": "moralis-admin-cli watch-cloud-folder --moralisSubdomain XXX.com --autoSave 1 --moralisCloudfolder ./cloudFunctions"
+    ```
+
+-   Execute by terminal:
+
+    ```bash
+    yarn moralis:cloud
+    ```
+
+You will see:
+
+```bash
+ncc: Version 0.29.2
+ncc: Compiling file index.js into CJS
+Changes Uploaded Correctly
+```
+
+Close it when you have already the functions udpated! -> only start it when you want to update the functions.
+
+-   Now you can exeucte scripts for example [mint-and-list](https://github.com/JMariadlcs/nft-marketplace-backend/blob/main/scripts/mint-and-list.js) and see that databaseLogs are updated!:
+    ```bash
+    yarn hardhat run scripts/mint-and-list.js --network localhost
+    ```
